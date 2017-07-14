@@ -1,9 +1,22 @@
+##
+# ShoppingCart
+#
+# Example usage:
+#
+# shopping_cart = ShoppingCart.new(session)
+# shopping_cart.order_lines.each do |line|
+#   puts "You ordered #{line.amount} #{line.product.name} at #{line.added_at}"
+# end
+#
 class ShoppingCart
-  attr_reader :products
+  attr_reader :order_lines
 
   def initialize(session = {})
+    # Session comes from the controller
     @session = session
+
     session_lines = session[:shopping_cart] || []
+
     @order_lines = session_lines.map do |line|
       # Create new OrderLine instances from each Hash in the
       # session storage
@@ -56,6 +69,8 @@ class ShoppingCart
   end
 
   def store!
-    @session[:shopping_cart] = @order_lines
+    @session[:shopping_cart] = @order_lines.map do |line|
+      line.to_hash
+    end
   end
 end

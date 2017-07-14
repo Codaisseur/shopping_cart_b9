@@ -1,4 +1,5 @@
 class OrderLine
+  attr_reader :product, :amount
   attr_accessor :added_at, :price
 
   def initialize(product, amount)
