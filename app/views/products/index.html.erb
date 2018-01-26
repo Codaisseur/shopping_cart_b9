@@ -4,8 +4,10 @@
 
   <ul>
     <li><%=product.name %> </li>
-    <li> <%=product.price %> </li>
-    <li> <%=product.stock %> </li>
+      <ul>
+        <li>€ <%=product.price %> </li>
+        <li><%=product.stock %> items left in stock.</li>
+      </ul>
   </ul>
-  
+
 <% end %>
