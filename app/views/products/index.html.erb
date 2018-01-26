@@ -1,13 +1,14 @@
 <h1>List of products</h1>
-
 <% @products.each do |product| %>
-
-  <ul>
-    <li><%=product.name %> </li>
-      <ul>
-        <li>€ <%=product.price %> </li>
-        <li><%=product.stock %> items left in stock.</li>
-      </ul>
-  </ul>
-
+  <div class="row row-offcanvas">
+    <div class="col-xs-3">
+      <div class="row">
+        <div class="col-xs-6 col-lg-4">
+          <h2><%= product.name %></h2>
+          <p>€ <%= product.price %></p>
+          <p><%= product.stock %> items left in stock.</p>
+          <p><a class="btn btn-default" href="#" role="button">Add to cart &raquo;</a></p>
+        </div>
+      </div>
+    </div>
 <% end %>
