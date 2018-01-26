@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_From_forgery with: :exception
+  #protect_From_forgery with: :exception
   helper_method :shopping_cart
 
   protected
@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
   def shopping_cart
     @cart ||= ShoppingCart.new(session)
   end
+
 end
